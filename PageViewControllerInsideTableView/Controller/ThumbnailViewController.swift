@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ThumbnailViewController.swift
 //  PageViewControllerInsideTableView
 //
 //  Created by Akash Malhotra on 6/20/16.
@@ -8,18 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ThumbnailViewController: UIViewController {
 
+    @IBOutlet weak var imgView: UIImageView!
+    var image: UIImage?
+    var index = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        self.imgView.image = image
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
-
+    func setValues(image: UIImage, index: Int) {
+        self.image = image
+        self.index = index
+    }
 }
-

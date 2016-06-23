@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qNQ-Dh-wKO">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="5q9-aS-GuP">
+            <objects>
+                <viewController id="qNQ-Dh-wKO" customClass="MainViewController" customModule="PageViewControllerInsideTableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZNm-aw-zPg"/>
+                        <viewControllerLayoutGuide type="bottom" id="EaJ-V6-BxU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SF8-hS-eE3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OBU-3b-wwg">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThumbnailCell" rowHeight="150" id="ae3-H3-jaJ">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ae3-H3-jaJ" id="Am1-YP-SMr">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="qNQ-Dh-wKO" id="0Ul-6d-snx"/>
+                                    <outlet property="delegate" destination="qNQ-Dh-wKO" id="bn6-aP-vB2"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EaJ-V6-BxU" firstAttribute="top" secondItem="OBU-3b-wwg" secondAttribute="bottom" id="NQy-K5-zC9"/>
+                            <constraint firstItem="OBU-3b-wwg" firstAttribute="top" secondItem="ZNm-aw-zPg" secondAttribute="bottom" id="mxs-Pd-WnN"/>
+                            <constraint firstItem="OBU-3b-wwg" firstAttribute="leading" secondItem="SF8-hS-eE3" secondAttribute="leading" id="pIl-kb-vwO"/>
+                            <constraint firstAttribute="trailing" secondItem="OBU-3b-wwg" secondAttribute="trailing" id="pcj-WR-B2t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageTableView" destination="OBU-3b-wwg" id="xMG-U5-tWe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Epx-gH-NS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="436" y="399"/>
+        </scene>
+        <!--Thumbnail View Controller-->
+        <scene sceneID="vaD-QL-vbX">
+            <objects>
+                <viewController storyboardIdentifier="ThumbnailViewController" id="Sda-yD-B0F" customClass="ThumbnailViewController" customModule="PageViewControllerInsideTableView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7eg-6e-4n5"/>
+                        <viewControllerLayoutGuide type="bottom" id="yBo-pW-GLb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ifl-qI-BW7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fCW-e8-N8b">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fCW-e8-N8b" firstAttribute="leading" secondItem="ifl-qI-BW7" secondAttribute="leading" id="Xky-VZ-aWj"/>
+                            <constraint firstItem="yBo-pW-GLb" firstAttribute="top" secondItem="fCW-e8-N8b" secondAttribute="bottom" id="Y1K-pZ-bkM"/>
+                            <constraint firstItem="fCW-e8-N8b" firstAttribute="top" secondItem="7eg-6e-4n5" secondAttribute="bottom" id="aBC-6o-6kM"/>
+                            <constraint firstAttribute="trailing" secondItem="fCW-e8-N8b" secondAttribute="trailing" id="eaO-op-Ff1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgView" destination="fCW-e8-N8b" id="rPo-Tz-xIV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x0t-R6-bFh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1091" y="399"/>
+        </scene>
+    </scenes>
+</document>
