@@ -44,7 +44,7 @@ class MainViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ThumbnailCell")
         
-        
+        //ADD PAGEVIEWCONTROLLER TO PARENT CHILD HIERARCHY
         let pageViewController = pageViewControllers[indexPath.row]
         addChildViewController(pageViewController)
         pageViewController.view.frame = (cell?.contentView.bounds)!
@@ -55,4 +55,11 @@ class MainViewController: UIViewController, UITableViewDataSource {
         return cell!
     }
 
+    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        //REMOVE PAGEVIEWCONTROLLER FROM PARENT CHILD HIERARCHY
+        let pageViewController = pageViewControllers[indexPath.row]
+        pageViewController.removeFromParentViewController()
+        pageViewController.view.removeFromSuperview()
+    }
 }
