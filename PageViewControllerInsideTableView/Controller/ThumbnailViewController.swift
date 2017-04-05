@@ -26,7 +26,7 @@ class ThumbnailViewController: UIViewController {
     }
     
 
-    func setValues(image: UIImage, index: Int) {
+    func setValues(_ image: UIImage, index: Int) {
         self.image = image
         self.index = index
     }

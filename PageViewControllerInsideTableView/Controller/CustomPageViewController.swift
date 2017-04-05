@@ -26,7 +26,7 @@ class CustomPageViewController: UIPageViewController, UIPageViewControllerDataSo
     
 
     init(images: [String]) {
-        super.init(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
+        super.init(transitionStyle: UIPageViewControllerTransitionStyle.scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.horizontal, options: nil)
         self.items = images
     }
 
@@ -39,12 +39,12 @@ class CustomPageViewController: UIPageViewController, UIPageViewControllerDataSo
         self.dataSource = self
         self.delegate = self
     
-        setViewControllers([viewControllerAtIndex(0)], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        setViewControllers([viewControllerAtIndex(0)], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
     }
     
     //MARK: PageViewController Utility
-    func viewControllerAtIndex(index: Int) -> ThumbnailViewController {
-        let thumbnailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ThumbnailViewController") as! ThumbnailViewController
+    func viewControllerAtIndex(_ index: Int) -> ThumbnailViewController {
+        let thumbnailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ThumbnailViewController") as! ThumbnailViewController
         thumbnailViewController.setValues(UIImage(named: items![index])!, index: index)
         
         selectedPageIndex = index
@@ -52,22 +52,22 @@ class CustomPageViewController: UIPageViewController, UIPageViewControllerDataSo
     }
     
     //MARK: UIPageViewControllerDataSource
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
         var index = (viewController as! ThumbnailViewController).index
         if index == 0 {
             return nil
         }
         
-        index--
+        index -= 1
         return viewControllerAtIndex(index)
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! ThumbnailViewController).index
         
-        index++
+        index += 1
         if index == 5 {
             return nil
         }
@@ -75,11 +75,11 @@ class CustomPageViewController: UIPageViewController, UIPageViewControllerDataSo
         return viewControllerAtIndex(index)
     }
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return 5
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return selectedPageIndex
     }
 }
